@@ -21,7 +21,6 @@ class NumberFormatter:
     Contain only single classmethod parseInt for
     parsing and converting stringified int into int."""
 
-    # noinspection PyChainedComparisons
     @classmethod
     def parseInt(cls, number: str) -> int:
         """Main method for stringified integer parsing and converting"""
@@ -72,16 +71,16 @@ class TestNumberFormatter(unittest.TestCase):
         """Test for check correct_length case"""
         test_str = "234230958209358239582935825029358209"
         str_len = len(test_str)
-        failure_msg = ('Number length must be in [2;2^32-1] '
-                       'range, but it len is %s!' % str_len)
+        fail_msg = ('Number length must be in [2;2^32-1] '
+                    'range, but it len is %s!' % str_len)
         # in this case length of test_str bigger than 10, test fail
-        self.assertIsNot(NumberFormatter.parseInt(test_str), -1, failure_msg)
+        self.assertIsNot(NumberFormatter.parseInt(test_str), -1, fail_msg)
 
     def test_stringified_int(self):
         """Test for check if input str is truly stringified integer case"""
         test_str = "-12_1231Ka"
         fail_msg = "Method parameter isn't a stringified integer!"
-        # in this case test_str isn't a stringified integer. test fail
+        # in this case test_str isn't a stringified integer, test fail
         self.assertIsNot(NumberFormatter.parseInt(test_str), -1, fail_msg)
 
     def test_negative_number(self):
