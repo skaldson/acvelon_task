@@ -1,4 +1,4 @@
-"""The Acvelon Coding task
+"""The Akvelon Coding task
 
 This module contain NumberFormatter class which have
 parseInt method. With this method you can convert
